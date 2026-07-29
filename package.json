@@ -1,0 +1,70 @@
+{
+  "name": "@jamiojala/routegraft",
+  "version": "0.1.0",
+  "description": "Composable middleware for AI endpoints with streaming, quotas, redaction, and policy hooks.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Jami Ojala",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamiojala/routegraft.git"
+  },
+  "homepage": "https://github.com/jamiojala/routegraft#readme",
+  "bugs": {
+    "url": "https://github.com/jamiojala/routegraft/issues"
+  },
+  "keywords": [
+    "llm",
+    "middleware",
+    "proxy",
+    "streaming",
+    "quotas",
+    "redaction",
+    "ai",
+    "typescript"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.18"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist coverage",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "example:basic": "tsx examples/basic.ts",
+    "example:quota": "tsx examples/quota.ts",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.30.0",
+    "@types/node": "^22.14.1",
+    "tsup": "^8.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.1"
+  }
+}
